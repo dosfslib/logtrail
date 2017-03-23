@@ -32,7 +32,8 @@ you need to map the current event fields in ES to logtrail specific fields. This
 `logtrail.json` file located inside`./plugins/logtrail` directory (for 4.x the directory is `./installedPlugins/logtrail/`).
 Edit the following fields:
 	- default_index - Elasticsearch index where the syslog events are stored (default: logstash-*)
-	    - While using an index name other than `logstash-*`, make sure respective .raw fields are created in ES index.
+	    - While using an index name other than `logstash-*`, by default make sure respective .raw fields are created in ES index.
+      - Otherwise, you can customize the search field data type to .keyword by editing the fields_data_type entry.
   - default_time_range_in_days - Default time range in days to search when time is not specified using Seek button.
     Example: Value of 30 means logtrail will search only in logs from last 30 days, unless time is specified using Seek button.
     Value of 0 means logtrail will search in all available logs by default.

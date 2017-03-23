@@ -84,7 +84,7 @@ module.exports = function (server) {
           term : {
           }
         };
-        var rawHostField = selected_config.fields.mapping.hostname + ".raw";
+        var rawHostField = selected_config.fields.mapping.hostname + selected_config.fields_data_type;
         termQuery.term[rawHostField] = request.payload.hostname;
         searchRequest.body.query.filtered.filter.bool.must.push(termQuery);
       }
@@ -150,7 +150,7 @@ module.exports = function (server) {
           }          
         }        
       }
-      var rawHostField = selected_config.fields.mapping.hostname + ".raw";
+      var rawHostField = selected_config.fields.mapping.hostname + selected_config.fields_data_type;
       var hostAggRequest = {
         index: selected_config.es.default_index,
         body : {
